@@ -34,7 +34,7 @@ const GetVariant: React.FC<GetVariantProps> = ({ isVariant }) => {
     return (
         <>
             <p className="page-title margin-bottom-large">
-                Input a prefix, and get a variant postcode.
+                Input a prefix to get a postcode in the variant bucket.
             </p>
             <input
                 className="input-box margin-bottom-large"
