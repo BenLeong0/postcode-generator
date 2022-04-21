@@ -47,7 +47,7 @@ function App() {
               Input a prefix, and get a variant postcode.
             </p>
             <input
-              className="prefix-input margin-bottom-large"
+              className="input-box margin-bottom-large"
               value={prefix}
               onChange={(e: any) => setPrefix(e.target.value)}
             />
@@ -65,7 +65,7 @@ function App() {
               Input a postcode to see which bucket it will be in.
             </p>
             <input
-              className="prefix-input margin-bottom-large"
+              className="input-box margin-bottom-large"
               value={postcodeToCheck}
               onChange={(e: any) => setPostcodeToCheck(e.target.value)}
             />
