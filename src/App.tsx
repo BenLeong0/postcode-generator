@@ -61,7 +61,7 @@ function App() {
       case "checkVariant":
         return (
           <>
-            <p className="margin-bottom-large">
+            <p className="page-title margin-bottom-large">
               Input a postcode to see which bucket it will be in.
             </p>
             <input
