@@ -16,6 +16,10 @@ p {
   margin: 0;
 }
 
+.margin-top-large {
+  margin-top: 40px;
+}
+
 .margin-bottom-large {
   margin-bottom: 40px;
 }
@@ -30,4 +34,9 @@ p {
 
 .sample-postcode {
   font-size: 40px;
+}
+
+.toggle-button {
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
 }

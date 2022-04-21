@@ -5,7 +5,12 @@ var md5 = require('md5');
 
 function App() {
   const [prefix, setPrefix] = useState<string>("");
+  const [postcodeToCheck, setPostcodeToCheck] = useState<string>("");
   const [state, setState] = useState<string>("getVariant");
+
+  const toggleState = () => {
+    setState(state === "getVariant" ? "checkVariant" : "getVariant")
+  }
 
   const isVariant = (postcode: string): boolean => {
     return parseInt(md5(postcode), 16) % 1000 > 500;
@@ -20,6 +25,13 @@ function App() {
       }
     }
     return "";
+  }
+
+  const getBucket = (postcode: string): string => {
+    if (postcode === "") {
+      return "_";
+    }
+    return isVariant(postcode) ? "variant_a" : "control";
   }
 
   const getContent = () => {
@@ -44,7 +56,20 @@ function App() {
 
       case "checkVariant":
         return (
-          <></>
+          <>
+            <p className="margin-bottom-large">
+              Input a postcode to see which bucket it will be in.
+            </p>
+            <input
+              className="prefix-input margin-bottom-large"
+              value={postcodeToCheck}
+              onChange={(e: any) => setPostcodeToCheck(e.target.value)}
+            />
+            <div>
+              <p className="italic">A/B Testing Bucket:</p>
+              <p className="sample-postcode">{getBucket(postcodeToCheck)}</p>
+            </div>
+          </>
         );
     }
   }
@@ -53,6 +78,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         {getContent()}
+        <button
+          className="toggle-button margin-top-large"
+          onClick={toggleState}
+        >Toggle mode</button>
       </header>
     </div>
   );
