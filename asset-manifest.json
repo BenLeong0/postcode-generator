@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/postcode-generator/static/css/main.9047a4f8.css",
-    "main.js": "/postcode-generator/static/js/main.9d567869.js",
+    "main.js": "/postcode-generator/static/js/main.d9cd202a.js",
     "static/js/787.7c7d95f3.chunk.js": "/postcode-generator/static/js/787.7c7d95f3.chunk.js",
     "index.html": "/postcode-generator/index.html",
     "main.9047a4f8.css.map": "/postcode-generator/static/css/main.9047a4f8.css.map",
-    "main.9d567869.js.map": "/postcode-generator/static/js/main.9d567869.js.map",
+    "main.d9cd202a.js.map": "/postcode-generator/static/js/main.d9cd202a.js.map",
     "787.7c7d95f3.chunk.js.map": "/postcode-generator/static/js/787.7c7d95f3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9047a4f8.css",
-    "static/js/main.9d567869.js"
+    "static/js/main.d9cd202a.js"
   ]
 }
