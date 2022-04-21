@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 var md5 = require('md5');
@@ -22,21 +22,37 @@ function App() {
     return "";
   }
 
+  const getContent = () => {
+    switch (state) {
+      case "getVariant":
+        return (
+          <>
+            <p className="margin-bottom-large">
+              Input a prefix, and get a variant postcode.
+            </p>
+            <input
+              className="prefix-input margin-bottom-large"
+              value={prefix}
+              onChange={(e: any) => setPrefix(e.target.value)}
+            />
+            <div>
+              <p className="italic">Sample variant postcode:</p>
+              <p className="sample-postcode">{prefix.toUpperCase()} {getValidSuffix()}</p>
+            </div>
+          </>
+        );
+
+      case "checkVariant":
+        return (
+          <></>
+        );
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <p className="margin-bottom-large">
-          Input a prefix, and get a variant postcode.
-        </p>
-        <input
-          className="prefix-input margin-bottom-large"
-          value={prefix}
-          onChange={(e: any) => setPrefix(e.target.value)}
-        />
-        <div>
-          <p className="italic">Sample variant postcode:</p>
-          <p className="sample-postcode">{prefix.toUpperCase()} {getValidSuffix()}</p>
-        </div>
+        {getContent()}
       </header>
     </div>
   );
