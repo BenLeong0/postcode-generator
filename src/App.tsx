@@ -21,13 +21,16 @@ function App() {
     return hashedValue >= 500;
   }
 
-  const getValidSuffix = (): string => {
-    const suffix = (
+  const getRandomSuffix = (): string => {
+    return (
       getRandomElement('0123456789') +
       getRandomElement('ABCDEFGHIJKLMNOPQRSTUVWXYZ') +
       getRandomElement('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     );
+  }
 
+  const getValidSuffix = (): string => {
+    const suffix = getRandomSuffix();
     if (isVariant(prefix + suffix)) {
       return suffix;
     } else {
