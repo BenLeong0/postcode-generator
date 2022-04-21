@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 var md5 = require('md5');
+var converter = require('hex2dec');
 
 function App() {
   const [prefix, setPrefix] = useState<string>("");
@@ -13,9 +14,10 @@ function App() {
   }
 
   const isVariant = (postcode: string): boolean => {
-    const normalisedPostcode = postcode.toUpperCase().replaceAll(" ", "");
-    console.log(`Normalised postcode: ${normalisedPostcode}`);
-    return parseInt(md5(normalisedPostcode), 16) % 1000 > 500;
+    const normalisedPostcode = postcode.toLowerCase().replaceAll(" ", "");
+    const hashedValue = parseInt(converter.hexToDec(md5(normalisedPostcode)).slice(-3));
+    console.log(`Normalised postcode: ${normalisedPostcode} (hashed value: ${hashedValue})`);
+    return hashedValue >= 500;
   }
 
   const getValidSuffix = (): string => {
