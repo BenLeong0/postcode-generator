@@ -43,7 +43,7 @@ function App() {
       case "getVariant":
         return (
           <>
-            <p className="margin-bottom-large">
+            <p className="page-title margin-bottom-large">
               Input a prefix, and get a variant postcode.
             </p>
             <input

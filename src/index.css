@@ -45,3 +45,7 @@ p {
   font-size: 20px;
   font-family:'Courier New', Courier, monospace;
 }
+
+.page-title {
+  font-size: 35px;
+}
