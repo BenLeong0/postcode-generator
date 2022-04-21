@@ -9,7 +9,7 @@ function App() {
   const [state, setState] = useState<string>("getVariant");
 
   const toggleState = () => {
-    setState(state === "getVariant" ? "checkVariant" : "getVariant")
+    setState(state === "getVariant" ? "checkVariant" : "getVariant");
   }
 
   const isVariant = (postcode: string): boolean => {
@@ -71,6 +71,11 @@ function App() {
             </div>
           </>
         );
+
+      default:
+        return (
+          <p>Invalid state: {state}</p>
+        )
     }
   }
 
