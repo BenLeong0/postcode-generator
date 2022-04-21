@@ -13,14 +13,16 @@ function App() {
   }
 
   const isVariant = (postcode: string): boolean => {
-    return parseInt(md5(postcode), 16) % 1000 > 500;
+    const normalisedPostcode = postcode.toUpperCase().replaceAll(" ", "");
+    console.log(`Normalised postcode: ${normalisedPostcode}`);
+    return parseInt(md5(normalisedPostcode), 16) % 1000 > 500;
   }
 
   const getValidSuffix = (): string => {
     for (let char of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
       var suffix = "1A" + char;
       var fullPostcode = prefix + suffix;
-      if (isVariant(fullPostcode.replace(" ", "").toUpperCase())) {
+      if (isVariant(fullPostcode)) {
         return suffix;
       }
     }
