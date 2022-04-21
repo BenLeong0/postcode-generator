@@ -75,7 +75,7 @@ function App() {
       default:
         return (
           <p>Invalid state: {state}</p>
-        )
+        );
     }
   }
 
