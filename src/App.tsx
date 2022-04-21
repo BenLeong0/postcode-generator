@@ -21,14 +21,17 @@ function App() {
   }
 
   const getValidSuffix = (): string => {
-    for (let char of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
-      var suffix = "1A" + char;
-      var fullPostcode = prefix + suffix;
-      if (isVariant(fullPostcode)) {
-        return suffix;
-      }
+    const suffix = (
+      getRandomElement('0123456789') +
+      getRandomElement('ABCDEFGHIJKLMNOPQRSTUVWXYZ') +
+      getRandomElement('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    );
+
+    if (isVariant(prefix + suffix)) {
+      return suffix;
+    } else {
+      return getValidSuffix();
     }
-    return "";
   }
 
   const getBucket = (postcode: string): string => {
@@ -95,5 +98,12 @@ function App() {
     </div>
   );
 }
+
+function getRandomElement(inputList: any[] | string): any {
+  const l = inputList.length;
+  const i = Math.floor(l * Math.random());
+  return inputList[i];
+}
+
 
 export default App;
