@@ -21,6 +21,13 @@ function App() {
     return hashedValue >= 500;
   }
 
+  const getBucket = (postcode: string): string => {
+    if (postcode === "") {
+      return "_";
+    }
+    return isVariant(postcode) ? "variant_a" : "control";
+  }
+
   const getRandomSuffix = (): string => {
     return (
       getRandomElement('0123456789') +
@@ -36,13 +43,6 @@ function App() {
     } else {
       return getValidSuffix();
     }
-  }
-
-  const getBucket = (postcode: string): string => {
-    if (postcode === "") {
-      return "_";
-    }
-    return isVariant(postcode) ? "variant_a" : "control";
   }
 
   const getContent = () => {
