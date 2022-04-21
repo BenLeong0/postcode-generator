@@ -5,9 +5,10 @@ var md5 = require('md5');
 var converter = require('hex2dec');
 
 function App() {
+  const [state, setState] = useState<string>("getVariant");
+
   const [prefix, setPrefix] = useState<string>("");
   const [postcodeToCheck, setPostcodeToCheck] = useState<string>("");
-  const [state, setState] = useState<string>("getVariant");
 
   const toggleState = () => {
     setState(state === "getVariant" ? "checkVariant" : "getVariant");
