@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p {
+  margin: 0;
+}
+
+.margin-bottom-large {
+  margin-bottom: 40px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.prefix-input {
+  font-size: 40px;
+}
+
+.sample-postcode {
+  font-size: 40px;
+}
