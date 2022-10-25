@@ -18,7 +18,7 @@ function App() {
         const normalisedPostcode = postcode.toLowerCase().replaceAll(" ", "");
         const hashedValue = parseInt(converter.hexToDec(md5(normalisedPostcode)).slice(-3));
         console.log(`Normalised postcode: ${normalisedPostcode} (hashed value: ${hashedValue})`);
-        return hashedValue >= 500;
+        return isBucketCVariant(hashedValue);
     }
 
     const getContent = () => {
@@ -47,6 +47,21 @@ function App() {
             </header>
         </div>
     );
+}
+
+const isBucketAVariant = (hashedValue: number): boolean => {
+    const isControl = hashedValue < 500;
+    return !isControl;
+}
+
+const isBucketCVariant = (hashedValue: number): boolean => {
+    const isControl = (
+        (hashedValue < 125) ||
+        (hashedValue > 249) && (hashedValue < 375) ||
+        (hashedValue > 499) && (hashedValue < 625) ||
+        (hashedValue > 749) && (hashedValue < 875)
+    )
+    return !isControl;
 }
 
 export default App;
